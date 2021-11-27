@@ -10,6 +10,7 @@ const ShopAccessories: Component = () => {
         <ShopArticle title={"Jewelery"}/>
         <ShopArticle title={"Caps"}/>
         <ShopArticle title={"Scarfs"}/>
+        <ShopArticle title={"Scarfs"}/>
       </div>
     </div>
   );
