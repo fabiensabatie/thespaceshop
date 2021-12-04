@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -62,3 +64,10 @@ h3 {
   box-shadow: 1px 1px #bababa, 2px 2px #bababa, 3px 3px #bababa, 4px 4px #bababa;
 }
 
+.price {
+  font-family: 'Anton';
+}
+
+.description {
+  font-family: 'Readex Pro', sans-serif;
+}
