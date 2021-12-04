@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Button = ({ black, children, skew } : Props) => {
-  const style = `${black ? "bg-black text-white hover:bg-gray-200" : "bg-white text-black hover:bg-gray-200" }`;
+  const style = `${black ? "bg-black text-white hover:bg-gray-200 hover:text-black" : "bg-white text-black hover:bg-gray-200" }`;
   const skewed = `${skew ? "transform -skew-x-6 " : "" }`;
   return (
     <div class={`p-5 ${skewed} cursor-pointer ${style}`}>

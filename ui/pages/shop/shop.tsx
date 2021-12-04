@@ -7,7 +7,9 @@ import ShopClothes from "./clothes";
 import ShopMenu, { Page } from "./shop-menu";
 import ShopArt from "./art";
 import ShopAccessories from "./accessories";
-import ShopProtesis from "./protesis";
+import ShopProthesis from "./prothesis";
+import { ShopArticle } from "../../../app/shop/domain/core/article";
+import ArticlePage from "./article";
 
 const ShopPage: Component = () => {
   const [page, setPage] = createSignal<Page>("featured");
@@ -17,7 +19,7 @@ const ShopPage: Component = () => {
       case "featured": return <ShopFeatured />;
       case "clothes": return <ShopClothes />;
       case "accessories": return <ShopAccessories />;
-      case "protesis": return <ShopProtesis />;
+      case "prothesis": return <ShopProthesis />;
       case "art": return <ShopArt />;
       case "others": return <ShopOthers />;
     }

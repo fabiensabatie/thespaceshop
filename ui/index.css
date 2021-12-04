@@ -56,3 +56,9 @@ h3 {
   -webkit-box-shadow: 1px 1px #bababa, 2px 2px #bababa, 3px 3px #bababa, 4px 4px #bababa;
   box-shadow: 1px 1px #bababa, 2px 2px #bababa, 3px 3px #bababa, 4px 4px #bababa;
 }
+
+.big-label {
+  -webkit-box-shadow: 1px 1px #bababa, 2px 2px #bababa, 3px 3px #bababa, 4px 4px #bababa ;
+  box-shadow: 1px 1px #bababa, 2px 2px #bababa, 3px 3px #bababa, 4px 4px #bababa;
+}
+

@@ -1,47 +1,38 @@
 import type { Component } from "solid-js";
-import ShopArticle from "../../components/shop/article";
 import TshirtArticle from "../../assets/images/shop/model.jpg";
 import WatchArticle from "../../assets/images/shop/model1.jpg";
 import SpaceArticle from "../../assets/images/shop/model2.jpg";
 import Model from "../../assets/images/shop/model3.jpg";
 import "solid-slider/dist/slider.css";
 import createSlider from "solid-slider";
+import { ShopArticle } from "../../../app/shop/domain/core/article";
+import ShopArticleSlider from "../../components/shop/slider";
+import { useNavigate } from "solid-app-router";
+import { shopStore } from "../../store/domain/core/shop.store";
 
-const ShopFeatured: Component = () => {
-  const options = { vertical: true };
-  const [slider, { current, next, prev, moveTo }] = createSlider(options);
-  
+const ShopFeatured = () => {
+  const { setSelectedArticle } = shopStore();
+  const navigate = useNavigate();
+
+  const openArticle = (article: ShopArticle) => {
+    setSelectedArticle(article);
+    navigate("/shop/article");
+  };
+
+  const articles = [
+    new ShopArticle({name: "Aiden Pearce", image: TshirtArticle, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Vincent Lay", image: WatchArticle, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Daniel Saadia", image: SpaceArticle, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Astro", image: Model, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Aiden Pearce", image: SpaceArticle, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Vincent Lay", image: TshirtArticle, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+    new ShopArticle({name: "Daniel Saadia", image: Model, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque tortor a est ultrices, in sagittis nulla hendrerit. Curabitur congue imperdiet neque vitae pulvinar. Etiam risus neque, suscipit ac est sit amet, eleifend semper orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque blandit malesuada justo, fermentum commodo magna maximus sit amet. Etiam ac fringilla quam, vitae euismod ex." }),
+  ];
+
   return (
-    <div class={"w-full h-full flex flex-col box-border"}>
-      <div class="font-bold uppercase text-2xl bg-black p-4 transform -skew-x-6 w-min whitespace-nowrap -ml-10 text-white">Featured sellers</div>
-      <div class="w-full h-full flex flex-row mt-8 data-keen-slider-scrollable overflow-x-scroll" data-keen-slider-scrollable  use:slider>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Aiden Pearce"} image={TshirtArticle} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Vincent Lay"} image={WatchArticle} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Daniel Saadia"} image={SpaceArticle} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Astro"} image={Model} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Aiden Pearce"} image={Model} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Vincent Lay"} image={SpaceArticle} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Daniel Saadia"} image={TshirtArticle} />
-        </div>
-        <div class="p-4 w-1/5">
-          <ShopArticle title={"Astro"} image={WatchArticle} />
-        </div>
-      </div>
-    </div>
+    <ShopArticleSlider articles={articles} category={"Featured sellers"} onClick={openArticle}/>
   );
 };
 
 export default ShopFeatured;
+

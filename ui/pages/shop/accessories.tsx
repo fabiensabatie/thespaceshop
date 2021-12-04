@@ -1,18 +1,30 @@
 import type { Component } from "solid-js";
-import ShopArticle from "../../components/shop/article";
+import { ShopArticle } from "../../../app/shop/domain/core/article";
+import ShopArticleSlider from "../../components/shop/slider";
+import WatchesArticle from "../../assets/images/shop/watches.jpg";
+import JeweleryArticle from "../../assets/images/shop/jewelery.jpg";
+import CapArticle from "../../assets/images/shop/cap.jpg";
+import { shopStore } from "../../store/domain/core/shop.store";
+import { useNavigate } from "solid-app-router";
+
 
 const ShopAccessories: Component = () => {
+  const { setSelectedArticle } = shopStore();
+  const navigate = useNavigate();
+
+  const openArticle = (article: ShopArticle) => {
+    setSelectedArticle(article);
+    navigate("/shop/article");
+  };
+
+  const articles = [
+    new ShopArticle({name: "Watches", image: WatchesArticle }),
+    new ShopArticle({name: "Jewelery", image: JeweleryArticle }),
+    new ShopArticle({name: "Caps", image: CapArticle }),
+  ]
+  
   return (
-    <div class={"w-full h-full flex flex-col box-border"}>
-      <div class="font-bold uppercase text-2xl bg-black p-4 transform -skew-x-6 w-min whitespace-nowrap -ml-10 text-white">Accessories</div>
-      <div class="w-full h-full flex flex-row mt-8 gap-6">
-        <ShopArticle title={"Watches"}/>
-        <ShopArticle title={"Jewelery"}/>
-        <ShopArticle title={"Caps"}/>
-        <ShopArticle title={"Scarfs"}/>
-        <ShopArticle title={"Scarfs"}/>
-      </div>
-    </div>
+    <ShopArticleSlider articles={articles} category={"Accessories"} onClick={openArticle}/>
   );
 };
 

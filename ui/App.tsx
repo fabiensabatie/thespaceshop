@@ -17,6 +17,7 @@ import CartPage from "./pages/cart";
 import StoriesPage from "./pages/stories";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
+import ArticlePage from "./pages/shop/article";
 
 const App: Component = () => {
   return (
@@ -30,9 +31,10 @@ const App: Component = () => {
       <Route path="/orders" element={<OrdersPages />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/cart" element={<CartPage />} />
-      <Route path="/stories" element={<StoriesPage />} />
+      <Route path="/shop/article" element={<ArticlePage />} />
     </Routes>
   );
 };
 
+.4
 export default App;

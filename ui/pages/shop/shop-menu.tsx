@@ -2,13 +2,13 @@ import { Accessor, createEffect } from "solid-js";
 import Star from "../../assets/images/star.png";
 import Tshirt from "../../assets/images/tshirt.png";
 import Glasses from "../../assets/images/glasses.png";
-import Protesis from "../../assets/images/protesis.png";
+import Prothesis from "../../assets/images/prothesis.png";
 import Art from "../../assets/images/mona-lisa.png";
 import Others from "../../assets/images/more.png";
 
-const pageOptions = ["featured", "clothes", "accessories", "protesis", "art", "others"] as const;
+const pageOptions = ["featured", "clothes", "accessories", "prothesis", "art", "others"] as const;
 
-export type Page = typeof pageOptions[number];
+export type Page = typeof pageOptions[number] | "article";
 
 interface ShopMenuProps {
   page : Accessor<Page>;
@@ -29,7 +29,7 @@ const Icons: ShopMenuItemIconMap = {
   featured: Star,
   clothes: Tshirt,
   accessories: Glasses,
-  protesis: Protesis,
+  prothesis: Prothesis,
   art: Art,
   others: Others
 }
